@@ -42,7 +42,12 @@ struct ContentView: View {
                 }
                 .bold()
                 Section("Daily coffe intake") {
-                    Stepper(coffeAmount == 1 ? "1 cup" : "\(coffeAmount) cups", value: $coffeAmount, in: 1...20)
+                    Picker("Number of cups", selection: $coffeAmount ){
+                        ForEach(1...20, id: \.self){ number in
+                            Text(number == 1 ? "1 cup" : "\(number) cups ")
+                        }
+                    }
+    
                 }
                 .bold()
         }
